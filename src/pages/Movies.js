@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 
-function Home() {
+function Movies() {
   const [data, setData] = useState([]);
   const [poster, setPoster] = useState([]);
   const [year, setYear] = useState([]);
@@ -20,7 +20,7 @@ function Home() {
 
   const API_KEY = 'c848f0d8';
   const BASE_URL = 'https://www.omdbapi.com';
-  const year2 = '2024'
+  const year2 = '2021'
 
   // FOR MODAL
   const [show, setShow] = useState(false);
@@ -113,4 +113,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Movies;

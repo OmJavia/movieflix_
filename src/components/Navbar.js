@@ -17,9 +17,9 @@ function Navigationbar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="Tvshow">TV Shows</Nav.Link>
-            <Nav.Link href="#action2">Movies</Nav.Link>
+            <Nav.Link href="/">Trending</Nav.Link>
+            <Nav.Link href="Series">Series</Nav.Link>
+            <Nav.Link href="Movies">Movies</Nav.Link>
             <Nav.Link href="#action2">New & Popular</Nav.Link>
             <Nav.Link href="#action2">My List</Nav.Link>
           </Nav>
