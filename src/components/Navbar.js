@@ -56,7 +56,7 @@ function Navigationbar() {
                 className="me-2"
                 aria-label="Search"
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}  // Update search term
+                onChange={(e) => setSearchTerm(e.target.value)}  
               />
               <Form.Control
                 type="text"
@@ -64,7 +64,7 @@ function Navigationbar() {
                 className="me-2"
                 aria-label="Year"
                 value={year2}
-                onChange={(e) => setYear2(e.target.value)}  // Update year input
+                onChange={(e) => setYear2(e.target.value)}  
               />
               <Button variant="outline-primary" onClick={handleClick}>Search</Button>
             </Form>
