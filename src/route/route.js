@@ -7,8 +7,7 @@ import {
 import Home from "../pages/Home";
 import Tvshow from "../pages/Tvshows";
 import Movies from "../pages/Movies";
-// import Contact from "../pages/Contact";
-
+import Fav from "../pages/Fav";
 
 function AppRoute(props) {
     return (
@@ -17,8 +16,7 @@ function AppRoute(props) {
           <Route exact path="/" element={<Home/>} />
           <Route exact path="Series" element={<Tvshow/>} />
           <Route exact path="Movies" element={<Movies/>} />
-            
-         
+          <Route exact path="Fav" element={<Fav/>} />  
         </Routes>
       </Router>
     );

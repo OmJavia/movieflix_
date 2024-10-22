@@ -8,18 +8,18 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
+import Modal from 'react-bootstrap/Modal';
 
 const API_KEY = 'c848f0d8';
 const BASE_URL = 'https://www.omdbapi.com';
 
 function Navigationbar() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [movies, setMovies] = useState([]);
-  const [year2, setYear2] = useState(''); 
+  const [movies, setMovies] = useState([]); 
 
   const handleClick = async () => {
     try {
-      let apiData = await axios.get(`${BASE_URL}?apikey=${API_KEY}&s=${searchTerm}&y=${year2}`);
+      let apiData = await axios.get(`${BASE_URL}?apikey=${API_KEY}&s=${searchTerm}`);
       const movies = apiData.data.Search;
       if (movies) {
         setMovies(movies);
@@ -31,6 +31,11 @@ function Navigationbar() {
     }
   };
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
@@ -41,32 +46,54 @@ function Navigationbar() {
             <Nav
               className="me-auto my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
-              navbarScroll
-            >
+              navbarScroll>
               <Nav.Link href="/">Trending</Nav.Link>
               <Nav.Link href="Series">Series</Nav.Link>
               <Nav.Link href="Movies">Movies</Nav.Link>
-              <Nav.Link href="#action2">New & Popular</Nav.Link>
-              <Nav.Link href="#action2">My List</Nav.Link>
+              <Nav.Link href="Fav">My Favourites</Nav.Link>
             </Nav>
             <Form className="d-flex" onSubmit={(e) => e.preventDefault()}>
               <Form.Control
                 type="search"
-                placeholder="Search"
+                placeholder="Enter Movie Name"
                 className="me-2"
                 aria-label="Search"
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}  
-              />
+                onChange={(e) => setSearchTerm(e.target.value)}  />
+              <Button variant="outline-primary" onClick={handleClick} style={{ marginRight: "10px" }}>Search</Button> 
+              <Button variant="outline-success" onClick={handleShow}>Login</Button>
+              
+              <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login Details</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
+              <Form.Label>Email address</Form.Label>
               <Form.Control
-                type="text"
-                placeholder="Year (optional)"
-                className="me-2"
-                aria-label="Year"
-                value={year2}
-                onChange={(e) => setYear2(e.target.value)}  
-              />
-              <Button variant="outline-primary" onClick={handleClick}>Search</Button>
+                type="email"
+                placeholder="Enter Your Email"
+                autoFocus/>
+            </Form.Group>
+            <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter Your Password"
+                autoFocus/>
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="outline-primary" onClick={handleClose}>
+            Sign Up
+          </Button>
+          <Button variant="outline-success" onClick={handleClose}>
+            Login
+          </Button>
+        </Modal.Footer>
+      </Modal>
             </Form>
           </Navbar.Collapse>
         </Container>
