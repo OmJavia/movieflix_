@@ -14,7 +14,6 @@ function Series() {
   const [poster, setPoster] = useState([]);
   const [year, setYear] = useState([]);
   const [selectedTitle, setSelectedTitle] = useState('');
-  const [selectedYear, setSelectedYear] = useState('');
   const [selectedPoster, setSelectedPoster] = useState('');
 
 
@@ -27,13 +26,11 @@ function Series() {
   const handleClose = () => setShow(false);
   const handleShow = (title, year, poster, plot) => {
     setSelectedTitle(title);
-    setSelectedYear(year);
     setSelectedPoster(poster);
 
     setShow(true);
   };
     useEffect(()=>{
-      console.log("heyy");
       handleClick()
       
     })
@@ -48,21 +45,12 @@ function Series() {
     setPoster(moviePoster);
     setYear(movieYear);
   }
-
-    // Handle the select change event
-    // const handleYearChange = (event) => {
-    //   const selectedYear = event.target.value;
-    //   if (selectedYear !="Year") {
-    //     handleClick(selectedYear);
-    //   }
-    // };
-
   return (
     <>
       <Navigation />
 
       <Container className="but d-flex align-items-center  flex-column mt-5 ">
-        <h1 className="text-white d-flex justify-content-center ">Some of Good Movies </h1>
+        <h1 className="text-white d-flex justify-content-center ">Latest Series</h1>
       </Container>
       <Container className=" but2 d-flex justify-content-center">
         <Row className="justify-content-center">
@@ -74,15 +62,12 @@ function Series() {
               className="mx-2 my-3 bg-dark text-white px-0 "
             >
               <Card.Img style={{ width: '100%', height: '300px', objectFit: 'cover' }} variant="top" src={poster[index]} alt="Card image" />
-              {/* <Card.ImgOverlay> */}
               <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
                   Year: {year[index]}
                 </Card.Text>
-                {/* <Button variant="primary">Go somewhere</Button> */}
               </Card.Body>
-              {/* </Card.ImgOverlay> */}
             </Card>
           ))}
         </Row>
