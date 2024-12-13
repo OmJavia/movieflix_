@@ -50,7 +50,6 @@ function Navigationbar() {
               <Nav.Link href="/">Trending</Nav.Link>
               <Nav.Link href="Series">Series</Nav.Link>
               <Nav.Link href="Movies">Movies</Nav.Link>
-              <Nav.Link href="Fav">My Favourites</Nav.Link>
             </Nav>
             <Form className="d-flex" onSubmit={(e) => e.preventDefault()}>
               <Form.Control
@@ -114,7 +113,7 @@ function Navigationbar() {
               </Col>
             ))
           ) : (
-            <p>No movies found</p>
+            <p>No movies found with the name you searched.</p>
           )}
         </Row>
       </Container>
